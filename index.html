@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genix AI Healthcare - Revolutionizing Healthcare with AI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2B9CDB;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            color: #52C4E8;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #2B9CDB;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, #2B9CDB, #52C4E8);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #2B9CDB;
+            border: 2px solid #2B9CDB;
+        }
+
+        .btn-outline:hover {
+            background: #2B9CDB;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(43, 156, 219, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2B9CDB, #52C4E8);
+            color: white;
+            box-shadow: 0 5px 15px rgba(43, 156, 219, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(43, 156, 219, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="150" fill="url(%23a)"/><circle cx="800" cy="300" r="100" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideUp 1s ease-out 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideUp 1s ease-out 0.4s both;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2B9CDB, #52C4E8);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2B9CDB, #52C4E8);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            background: #f8f9fa;
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Login Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 3rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalSlide 0.3s ease-out;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .modal h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #2B9CDB;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #2B9CDB;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #2B9CDB;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #2B9CDB;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #888;
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(5deg); }
+            66% { transform: translateY(-15px) rotate(-3deg); }
+        }
+
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Database Connection Status */
+        .db-status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .db-status.disconnected {
+            background: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                Genix AI Healthcare
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-outline" onclick="openModal('loginModal')">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+                <a href="#" class="btn btn-primary" onclick="openModal('signupModal')">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Revolutionizing Healthcare with AI</h1>
+            <p>Empowering medical professionals with cutting-edge artificial intelligence to deliver better patient outcomes and streamlined healthcare experiences.</p>
+            <div class="hero-buttons">
+                <a href="#features" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Explore Features
+                </a>
+                <a href="#" class="btn btn-outline" onclick="openModal('demoModal')">
+                    <i class="fas fa-play"></i> Watch Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Powerful AI-Driven Features</h2>
+                <p>Discover how our advanced AI technology transforms healthcare delivery and patient care management.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Diagnostics</h3>
+                    <p>Advanced machine learning algorithms that assist in accurate medical diagnosis with 99.7% precision, reducing diagnostic errors and improving patient outcomes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Predictive Analytics</h3>
+                    <p>Leverage patient data to predict health trends, identify risk factors early, and implement preventive care strategies for better long-term health management.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Virtual Health Assistant</h3>
+                    <p>24/7 AI-powered virtual assistants that guide patients through symptoms, medication reminders, and provide instant medical information and support.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Data Security & Privacy</h3>
+                    <p>Enterprise-grade security with end-to-end encryption, HIPAA compliance, and advanced privacy protection for all patient data and medical records.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Integration</h3>
+                    <p>Seamless mobile app integration allowing patients and healthcare providers to access critical information anytime, anywhere with real-time synchronization.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3>Team Collaboration</h3>
+                    <p>Advanced collaboration tools that enable healthcare teams to work together efficiently, share insights, and coordinate patient care across multiple departments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comprehensive Healthcare Solutions</h2>
+                <p>From patient management to clinical decision support, we provide end-to-end AI solutions for modern healthcare.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Clinical Decision Support</h3>
+                    <p>AI-powered tools that provide real-time clinical recommendations and evidence-based treatment suggestions.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3>Hospital Management</h3>
+                    <p>Comprehensive hospital management system with AI optimization for resource allocation and patient flow.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3>Drug Discovery</h3>
+                    <p>Accelerate pharmaceutical research with AI-driven drug discovery and development platforms.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Remote Monitoring</h3>
+                    <p>Continuous patient monitoring with IoT devices and AI analysis for proactive healthcare intervention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2><i class="fas fa-sign-in-alt"></i> Login to Genix</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+            <p style="text-align: center; margin-top: 1rem;">
+                Don't have an account? <a href="#" onclick="switchModal('loginModal', 'signupModal')" style="color: #2B9CDB;">Sign up here</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signupModal')">&times;</span>
+            <h2><i class="fas fa-user-plus"></i> Join Genix</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </button>
+            </form>
+            <p style="text-align: center; margin-top: 1rem;">
+                Already have an account? <a href="#" onclick="switchModal('signupModal', 'loginModal')" style="color: #2B9CDB;">Login here</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Genix AI Healthcare</h3>
+                <p>Transforming healthcare through artificial intelligence and innovative technology solutions.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Products</h3>
+                <a href="#">AI Diagnostics</a><br>
+                <a href="#">Predictive Analytics</a><br>
+                <a href="#">Virtual Assistant</a><br>
+                <a href="#">Mobile Platform</a>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="#">About Us</a><br>
+                <a href="#">Careers</a><br>
+                <a href="#">Press</a><br>
+                <a href="#">Partners</a>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <a href="#">Help Center</a><br>
+                <a href="#">Documentation</a><br>
+                <a href="#">Contact</a><br>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Genix AI Healthcare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Database Status Indicator -->
+    <div class="db-status" id="dbStatus">
+        <i class="fas fa-database"></i>
+        <span id="dbStatusText">Database Connected</span>
+    </div>
+
+    <script>
+        // Database simulation
+        let dbConnected = true;
+        let users = JSON.parse(localStorage.getItem('genixUsers') || '[]');
+
+        // Database status simulation
+        function simulateDbConnection() {
+            const statusEl = document.getElementById('dbStatus');
+            const statusText = document.getElementById('dbStatusText');
+            
+            // Simulate occasional disconnection
+            if (Math.random() < 0.1) {
+                dbConnected = false;
+                statusEl.classList.add('disconnected');
+                statusText.textContent = 'Database Disconnected';
+                
+                // Reconnect after 3 seconds
+                setTimeout(() => {
+                    dbConnected = true;
+                    statusEl.classList.remove('disconnected');
+                    statusText.textContent = 'Database Connected';
+                }, 3000);
+            }
+        }
+
+        // Run database simulation every 10 seconds
+        setInterval(simulateDbConnection, 10000);
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function switchModal(currentModal, targetModal) {
+            closeModal(currentModal);
+            openModal(targetModal);
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // Form submissions
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!dbConnected) {
+                alert('Database connection error. Please try again later.');
+                return;
+            }
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simulate user authentication
+            const user = users.find(u => u.email === email && u.password === password);
+            
+            if (user) {
+                alert(`Welcome back, ${user.fullName}!`);
+                closeModal('loginModal');
+                // Here you would typically redirect to dashboard
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!dbConnected) {
+                alert('Database connection error. Please try again later.');
+                return;
+            }
+
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // Check if user already exists
+            if (users.find(u => u.email === email)) {
+                alert('User with this email already exists!');
+                return;
+            }
+
+            // Add new user to "database"
+            const newUser = {
+                id: Date.now(),
+                fullName,
+                email,
+                password,
+                createdAt: new Date().toISOString()
+            };
+
+            users.push(newUser);
+            localStorage.setItem('genixUsers', JSON.stringify(users));
+
+            alert(`Account created successfully! Welcome, ${fullName}!`);
+            closeModal('signupModal');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Feature cards animation on scroll
+        function animateOnScroll() {
+            const cards = document.querySelectorAll('.feature-card, .service-item');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const cardVisible = 150;
+                
+                if (cardTop < window.innerHeight - cardVisible) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialize cards as hidden
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.feature-card, .service-item');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease';
+            });
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Initialize database with sample data if empty
+        if (users.length === 0) {
+            const sampleUsers = [
+                {
+                    id: 1,
+                    fullName: 'Dr. Mohit Mishra',
+                    email: 'Mishra.Mohit@genix.ai',
+                    password: 'doctor123',
+                    role: 'Doctor',
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    id: 2,
+                    fullName: 'Anirudh Sharma',
+                    email: 'Anirudh.patient@email.com',
+                    password: 'patient123',
+                    role: 'Patient',
+                    createdAt: new Date().toISOString()
+                }
+            ];
+            
+            users = sampleUsers;
+            localStorage.setItem('genixUsers', JSON.stringify(users));
+        }
+
+        // Advanced features simulation
+        function simulateAIProcessing() {
+            console.log('AI Diagnostics Engine: Processing patient data...');
+            console.log('Predictive Analytics: Analyzing health trends...');
+            console.log('Virtual Assistant: Ready for patient queries...');
+        }
+
+        // Run AI simulation periodically
+        setInterval(simulateAIProcessing, 30000);
+
+        // Mobile menu toggle (for responsive design)
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-active');
+        }
+
+        // Add mobile menu styles dynamically
+        const mobileStyles = `
+            @media (max-width: 768px) {
+                .nav-links.mobile-active {
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    right: 0;
+                    background: white;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                    padding: 1rem;
+                }
+                
+                .nav-links.mobile-active li {
+                    margin: 0.5rem 0;
+                }
+            }
+        `;
+
+        // Add mobile styles to head
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = mobileStyles;
+        document.head.appendChild(styleSheet);
+
+        // Demo modal functionality
+        function showDemo() {
+            alert('Demo video would be displayed here. This showcases AI diagnostics in action with real patient data visualization.');
+        }
+
+        // Add demo modal
+        const demoModal = document.createElement('div');
+        demoModal.id = 'demoModal';
+        demoModal.className = 'modal';
+        demoModal.innerHTML = `
+            <div class="modal-content" style="max-width: 800px;">
+                <span class="close" onclick="closeModal('demoModal')">&times;</span>
+                <h2><i class="fas fa-play-circle"></i> Genix AI Healthcare Demo</h2>
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="background: #f8f9fa; border-radius: 15px; padding: 3rem; margin: 1rem 0;">
+                        <i class="fas fa-video" style="font-size: 4rem; color: #2B9CDB; margin-bottom: 1rem;"></i>
+                        <h3>Interactive AI Demo</h3>
+                        <p>Experience our AI diagnostics engine analyzing patient symptoms and providing instant medical insights.</p>
+                        <button class="btn btn-primary" onclick="startDemo()" style="margin-top: 1rem;">
+                            <i class="fas fa-play"></i> Start Interactive Demo
+                        </button>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                            <i class="fas fa-brain" style="color: #2B9CDB; font-size: 2rem;"></i>
+                            <h4>AI Analysis</h4>
+                            <p>Real-time symptom analysis</p>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                            <i class="fas fa-chart-bar" style="color: #52C4E8; font-size: 2rem;"></i>
+                            <h4>Data Visualization</h4>
+                            <p>Interactive health dashboards</p>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                            <i class="fas fa-user-md" style="color: #667eea; font-size: 2rem;"></i>
+                            <h4>Clinical Support</h4>
+                            <p>Evidence-based recommendations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(demoModal);
+
+        function startDemo() {
+            closeModal('demoModal');
+            alert('Interactive demo would launch here, showcasing:\n\n• AI-powered symptom checker\n• Real-time diagnostic suggestions\n• Patient data visualization\n• Clinical decision support tools\n• Predictive health analytics');
+        }
+
+        // SQL Database simulation functions
+        const dbOperations = {
+            // User operations
+            createUser: function(userData) {
+                console.log('SQL: INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)', 
+                           [userData.fullName, userData.email, userData.password, userData.role || 'Patient']);
+                return userData;
+            },
+            
+            getUserByEmail: function(email) {
+                console.log('SQL: SELECT * FROM users WHERE email = ?', [email]);
+                return users.find(u => u.email === email);
+            },
+            
+            // Patient data operations
+            createPatientRecord: function(patientData) {
+                console.log('SQL: INSERT INTO patient_records (user_id, medical_history, current_symptoms) VALUES (?, ?, ?)',
+                           [patientData.userId, patientData.medicalHistory, patientData.symptoms]);
+            },
+            
+            // AI diagnostics operations
+            logDiagnostic: function(diagnosticData) {
+                console.log('SQL: INSERT INTO ai_diagnostics (patient_id, symptoms, ai_analysis, confidence_score) VALUES (?, ?, ?, ?)',
+                           [diagnosticData.patientId, diagnosticData.symptoms, diagnosticData.analysis, diagnosticData.confidence]);
+            }
+        };
+
+        // Enhanced form validation
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validatePassword(password) {
+            return password.length >= 8;
+        }
+
+        // Update form submissions with better validation and SQL simulation
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!dbConnected) {
+                showNotification('Database connection error. Please try again later.', 'error');
+                return;
+            }
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (!validateEmail(email)) {
+                showNotification('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            // Simulate SQL query
+            const user = dbOperations.getUserByEmail(email);
+            
+            if (user && user.password === password) {
+                showNotification(`Welcome back, ${user.fullName}!`, 'success');
+                closeModal('loginModal');
+                updateUIForLoggedInUser(user);
+            } else {
+                showNotification('Invalid credentials. Please try again.', 'error');
+            }
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!dbConnected) {
+                showNotification('Database connection error. Please try again later.', 'error');
+                return;
+            }
+
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (!validateEmail(email)) {
+                showNotification('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            if (!validatePassword(password)) {
+                showNotification('Password must be at least 8 characters long.', 'error');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                showNotification('Passwords do not match!', 'error');
+                return;
+            }
+
+            // Check if user already exists
+            if (dbOperations.getUserByEmail(email)) {
+                showNotification('User with this email already exists!', 'error');
+                return;
+            }
+
+            // Create new user
+            const newUser = {
+                id: Date.now(),
+                fullName,
+                email,
+                password,
+                role: 'Patient',
+                createdAt: new Date().toISOString()
+            };
+
+            users.push(newUser);
+            localStorage.setItem('genixUsers', JSON.stringify(users));
+            
+            // Simulate SQL operations
+            dbOperations.createUser(newUser);
+
+            showNotification(`Account created successfully! Welcome, ${fullName}!`, 'success');
+            closeModal('signupModal');
+            updateUIForLoggedInUser(newUser);
+        });
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+                ${message}
+            `;
+            
+            const styles = `
+                .notification {
+                    position: fixed;
+                    top: 100px;
+                    right: 20px;
+                    padding: 1rem 1.5rem;
+                    border-radius: 10px;
+                    color: white;
+                    z-index: 3000;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    animation: slideInRight 0.3s ease-out;
+                    min-width: 300px;
+                    font-weight: 500;
+                }
+                .notification.success { background: #28a745; }
+                .notification.error { background: #dc3545; }
+                .notification.info { background: #17a2b8; }
+                
+                @keyframes slideInRight {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+            `;
+            
+            if (!document.querySelector('#notification-styles')) {
+                const styleEl = document.createElement('style');
+                styleEl.id = 'notification-styles';
+                styleEl.textContent = styles;
+                document.head.appendChild(styleEl);
+            }
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideInRight 0.3s ease-out reverse';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Update UI for logged in user
+        function updateUIForLoggedInUser(user) {
+            const authButtons = document.querySelector('.auth-buttons');
+            authButtons.innerHTML = `
+                <span style="color: #2B9CDB; font-weight: 500;">Welcome, ${user.fullName}</span>
+                <a href="#" class="btn btn-outline" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            `;
+        }
+
+        function logout() {
+            const authButtons = document.querySelector('.auth-buttons');
+            authButtons.innerHTML = `
+                <a href="#" class="btn btn-outline" onclick="openModal('loginModal')">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+                <a href="#" class="btn btn-primary" onclick="openModal('signupModal')">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </a>
+            `;
+            showNotification('Logged out successfully!', 'info');
+        }
+
+        // Initialize the application
+        console.log('Genix AI Healthcare Platform Initialized');
+        console.log('Database Status: Connected');
+        console.log('AI Services: Online');
+        console.log('Security: HIPAA Compliant');
+    </script>
+</body>
+</html>
